@@ -39,7 +39,7 @@ var SearchableMapLib = {
     if (SearchableMapLib.debug)
       console.log('debug mode is on');
 
-    //reset filters
+    // filters
     $("#search-address").val(SearchableMapLib.convertToPlainString($.address.parameter('address')));
 
     var loadRadius = SearchableMapLib.convertToPlainString($.address.parameter('radius'));
@@ -62,7 +62,7 @@ var SearchableMapLib = {
 	  
 	  
 	  
-	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(SearchableMapLib.map);
+	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 	  
 	  
 	  
