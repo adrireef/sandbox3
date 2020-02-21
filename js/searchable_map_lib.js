@@ -178,7 +178,7 @@ var SearchableMapLib = {
           SearchableMapLib.renderMap();
           SearchableMapLib.renderList();
           SearchableMapLib.getResults();
-//        }
+        }
 //        else {
 //          alert("We could not find your address: " + status);
 //        }
