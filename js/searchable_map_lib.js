@@ -166,7 +166,7 @@ var SearchableMapLib = {
       
       
       geocoder.geocode( { 'address': address }, function(results, status) {
-//        if (status == google.maps.GeocoderStatus.OK) {
+        if (status == google.maps.GeocoderStatus.OK) {
           SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
           $.address.parameter('address', encodeURIComponent(address));
           $.address.parameter('radius', SearchableMapLib.radius);
@@ -178,10 +178,10 @@ var SearchableMapLib = {
           SearchableMapLib.renderMap();
           SearchableMapLib.renderList();
           SearchableMapLib.getResults();
-//        }
-//        else {
-//          alert("We could not find your address: " + status);
-//        }
+        }
+        else {
+          alert("We could not find your address: " + status);
+        }
       });
     }
     else { //search without geocoding callback
