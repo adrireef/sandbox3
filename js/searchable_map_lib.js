@@ -178,11 +178,11 @@ var SearchableMapLib = {
           SearchableMapLib.renderMap();
           SearchableMapLib.renderList();
           SearchableMapLib.getResults();
-        }
+//        }
 //        else {
 //          alert("We could not find your address: " + status);
 //        }
-//      });
+      });
     }
     else { //search without geocoding callback
       SearchableMapLib.map.setView(new L.LatLng( SearchableMapLib.map_centroid[0], SearchableMapLib.map_centroid[1] ), SearchableMapLib.defaultZoom)
