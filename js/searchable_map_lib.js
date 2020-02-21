@@ -183,7 +183,7 @@ var SearchableMapLib = {
 
     if (address != "") {
       
-      geocoder.geocode( { 'address': address }, function(results, status) {
+      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
