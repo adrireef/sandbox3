@@ -184,6 +184,7 @@ var SearchableMapLib = {
     if (address != "") {
       
       //SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
+      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
