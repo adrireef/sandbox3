@@ -50,7 +50,7 @@ var SearchableMapLib = {
 
     $(":checkbox").prop("checked", "checked");
     
-    var geocoder = new L.Control.OSMGeocoder();
+    geocoder = new L.Control.OSMGeocoder();
 
     //geocoder = new google.maps.Geocoder();
     // initiate leaflet map
