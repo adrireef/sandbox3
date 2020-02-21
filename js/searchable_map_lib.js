@@ -162,26 +162,35 @@ var SearchableMapLib = {
     }
 
     if (address != "") {
-
-      
       
       geocoder.geocode( { 'address': address }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-          $.address.parameter('address', encodeURIComponent(address));
-          $.address.parameter('radius', SearchableMapLib.radius);
-          SearchableMapLib.address = address;
-          SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
-          SearchableMapLib.setZoom();
-          SearchableMapLib.addIcon();
-          SearchableMapLib.addCircle();
-          SearchableMapLib.renderMap();
-          SearchableMapLib.renderList();
-          SearchableMapLib.getResults();
-        }
-        else {
-          alert("We could not find your address: " + status);
-        }
+      $.address.parameter('address', encodeURIComponent(address));
+      $.address.parameter('radius', SearchableMapLib.radius);
+      SearchableMapLib.address = address;
+      SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
+      SearchableMapLib.setZoom();
+      SearchableMapLib.addIcon();
+      SearchableMapLib.addCircle();
+      SearchableMapLib.renderMap();
+      SearchableMapLib.renderList();
+      SearchableMapLib.getResults();
+	  
+        //if (status == google.maps.GeocoderStatus.OK) {
+          //SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
+          //$.address.parameter('address', encodeURIComponent(address));
+          //$.address.parameter('radius', SearchableMapLib.radius);
+          //SearchableMapLib.address = address;
+          //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
+          //SearchableMapLib.setZoom();
+          //SearchableMapLib.addIcon();
+          //SearchableMapLib.addCircle();
+          //SearchableMapLib.renderMap();
+          //SearchableMapLib.renderList();
+          //SearchableMapLib.getResults();
+        //}
+        //else {
+          //alert("We could not find your address: " + status);
+        //}
       });
     }
     else { //search without geocoding callback
