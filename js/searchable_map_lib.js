@@ -183,7 +183,7 @@ var SearchableMapLib = {
 
     if (address != "") {
       
-      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
+      //SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
@@ -211,7 +211,7 @@ var SearchableMapLib = {
         //else {
           //alert("We could not find your address: " + status);
         //}
-      });
+      //});
     }
     else { //search without geocoding callback
       SearchableMapLib.map.setView(new L.LatLng( SearchableMapLib.map_centroid[0], SearchableMapLib.map_centroid[1] ), SearchableMapLib.defaultZoom)
