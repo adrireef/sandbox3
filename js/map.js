@@ -29,7 +29,8 @@ $(function() {
   
 
 
-  var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search-address'));
+  //var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search-address'));
+  var autocomplete = document.getElementById('search-address');
   var modalURL;
 
   $('#btnSearch').click(function(){
