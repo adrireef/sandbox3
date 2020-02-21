@@ -55,7 +55,7 @@ var SearchableMapLib = {
             position: 'bottomright',
             text: 'Find!',
 			});
-        SearchableMapLib.map.addControl(osmGeocoder);
+        SearchableMapLib.map.add(osmGeocoder);
         
     //geocoder = new L.Control.OSMGeocoder();
 
