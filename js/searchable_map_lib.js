@@ -55,7 +55,7 @@ var SearchableMapLib = {
             position: 'bottomright',
             text: 'Find!',
 			});
-    SearchableMapLib.geocoder.onAdd = function (map) {
+    SearchableMapLib.geocoder.onAdd = function (SearchableMapLib.map) {
           this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
           this.update();
           return this._div;
@@ -70,7 +70,7 @@ var SearchableMapLib = {
           //return this._div;
       //};
         
-    //geocoder = new L.Control.OSMGeocoder();
+    //SearchableMapLib.geocoder = new L.Control.OSMGeocoder();
 
     //geocoder = new google.maps.Geocoder();
     // initiate leaflet map
