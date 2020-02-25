@@ -55,7 +55,7 @@ var SearchableMapLib = {
             position: 'bottomright',
             text: 'Find!',
 			});
-    SearchableMapLib.geocoder.onAdd = function (SearchableMapLib.map) {
+    SearchableMapLib.geocoder.onAdd = function (map) {
           this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
           this.update();
           return this._div;
