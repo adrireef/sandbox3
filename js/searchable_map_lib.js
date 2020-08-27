@@ -77,12 +77,11 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 	  
-	  //    SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
-	SearchableMapLib.geocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...', position: 'bottomright'});
-//            collapsed: false,
-//            position: 'bottomright',
-//            text: 'Find!',
-//			});
+    SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
+            collapsed: false,
+            position: 'bottomright',
+            text: 'Find!',
+			});
     SearchableMapLib.geocoder.onAdd = function (map) {
           this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
           this.update();
