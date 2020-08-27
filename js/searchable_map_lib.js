@@ -77,8 +77,6 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 
-	SearchableMapLib.webGeocoder =  'http://open.mapquestapi.com/search?format=json&q=' + address;
-	
 //	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
 //	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
@@ -190,7 +188,7 @@ var SearchableMapLib = {
       
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-	
+	SearchableMapLib.webGeocoder =  'http://open.mapquestapi.com/search?format=json&q=' + address;
 	$.getJSON(SearchableMapLib.webGeocoder, function(data) {
 	  SearchableMapLib.currentPinpoint = [data[0].lat(), data[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
