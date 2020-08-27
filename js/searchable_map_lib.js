@@ -77,7 +77,9 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 
-	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
+	SearchableMapLib.webGeocoder =  'http://open.mapquestapi.com/search?format=json&q=' + address;
+	
+//	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
 //	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
       //add hover info control
@@ -172,12 +174,25 @@ var SearchableMapLib = {
     if (address != "") {
 		console.log('print address');
 		console.log(address);
+		
+		//$.getJSON(SearchableMapLib.webGeocoder, function(data) {
+//// get lat + lon from first match
+		//var latlng = [data[0].lat, data[0].lon]
+		//console.log(latlng);
+//// let's stringify it
+		//var latlngAsString = latlng.join(',');
+		//console.log(latlngAsString);
+//// the full results JSON
+		//console.log(data);
+		//});
+		
+		
       
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
 	
-		SearchableMapLib.OSMGeocoder.get({ 'address': address }, function(results) {
-	  SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
+	$.getJSON(SearchableMapLib.webGeocoder, function(data) {
+	  SearchableMapLib.currentPinpoint = [data[0].lat(), data[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
@@ -188,8 +203,6 @@ var SearchableMapLib = {
       SearchableMapLib.renderMap();
       SearchableMapLib.renderList();
       SearchableMapLib.getResults();});
-      conole.log('results of geocoding');
-      console.log(results[0]);
 	
 	
 	  //SearchableMapLib.OSMGeocoder.callback( { 'address': address }, function(results) {
