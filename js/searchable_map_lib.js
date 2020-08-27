@@ -50,11 +50,12 @@ var SearchableMapLib = {
 
     $(":checkbox").prop("checked", "checked");
     
-    SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
-            collapsed: false,
-            position: 'bottomright',
-            text: 'Find!',
-			});
+//    SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
+	SearchableMapLib.geocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
+//            collapsed: false,
+//            position: 'bottomright',
+//            text: 'Find!',
+//			});
     SearchableMapLib.geocoder.onAdd = function (map) {
           this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
           this.update();
