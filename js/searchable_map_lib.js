@@ -77,8 +77,8 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 
-	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
-	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
+//	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
+//	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
       //add hover info control
       SearchableMapLib.info = L.control({position: 'bottomleft'});
@@ -173,7 +173,8 @@ var SearchableMapLib = {
       
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-	  SearchableMapLib.OSMGeocoder.callback( { 'address': address }, function(results) {
+	
+	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'}, { 'address': address }, function(results) {
 	  SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
@@ -184,7 +185,21 @@ var SearchableMapLib = {
       SearchableMapLib.addCircle();
       SearchableMapLib.renderMap();
       SearchableMapLib.renderList();
-      SearchableMapLib.getResults();})
+      SearchableMapLib.getResults();});
+	
+	
+	  //SearchableMapLib.OSMGeocoder.callback( { 'address': address }, function(results) {
+	  //SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
+      //$.address.parameter('address', encodeURIComponent(address));
+      //$.address.parameter('radius', SearchableMapLib.radius);
+      //SearchableMapLib.address = address;
+      //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
+      //SearchableMapLib.setZoom();
+      //SearchableMapLib.addIcon();
+      //SearchableMapLib.addCircle();
+      //SearchableMapLib.renderMap();
+      //SearchableMapLib.renderList();
+      //SearchableMapLib.getResults();})
 	  
         //if (status == google.maps.GeocoderStatus.OK) {
           //SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
