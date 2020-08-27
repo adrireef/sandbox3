@@ -190,7 +190,8 @@ var SearchableMapLib = {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
 	SearchableMapLib.webGeocoder =  'https://nominatim.openstreetmap.org/search?format=json&q=' + address;
 	$.getJSON(SearchableMapLib.webGeocoder, function(data) {
-	  SearchableMapLib.currentPinpoint = [data[0].lat(), data[0].lon()];
+		console.log(data[0].lat, data[0].lon);
+	  SearchableMapLib.currentPinpoint = [data[0].lat, data[0].lon];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
