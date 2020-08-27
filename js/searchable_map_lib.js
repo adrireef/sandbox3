@@ -163,6 +163,8 @@ var SearchableMapLib = {
   doSearch: function() {
     SearchableMapLib.clearSearch();
     var address = $("#search-address").val();
+    console.log('print address');
+    console.log(address);
     SearchableMapLib.radius = $("#search-radius").val();
 
     if (SearchableMapLib.radius == null && address != "") {
@@ -174,7 +176,7 @@ var SearchableMapLib = {
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
 	
-	SearchableMapLib.OSMGeocoder.search({ 'address': address }, function(results) {
+	SearchableMapLib.OSMGeocoder({ 'address': address }, function(results) {
 	  SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
