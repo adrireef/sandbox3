@@ -80,22 +80,6 @@ var SearchableMapLib = {
 	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
 	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
-	  
-    //SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
-            //collapsed: false,
-            //position: 'bottomright',
-            //text: 'Find!',
-			//});
-    //SearchableMapLib.geocoder.onAdd = function (map) {
-          //this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
-          //this.update();
-          //return this._div;
-      //};
-	  
-      //SearchableMapLib.google = L.gridLayer.googleMutant({type: 'roadmap' });
-
-      //SearchableMapLib.map.addLayer(SearchableMapLib.google);
-
       //add hover info control
       SearchableMapLib.info = L.control({position: 'bottomleft'});
 
@@ -187,8 +171,10 @@ var SearchableMapLib = {
 
     if (address != "") {
       
-      //SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
-      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
+//      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
+//      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
+	  SearchableMapLib.OSMGeocoder( { 'address': address }, function(results) {
+	  SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
       SearchableMapLib.address = address;
