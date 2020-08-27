@@ -76,17 +76,21 @@ var SearchableMapLib = {
 	  
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
+
+	var SearchableMapLib.osmGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
+	map.addControl(SearchableMapLib.osmGeocoder);
+
 	  
-    SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
-            collapsed: false,
-            position: 'bottomright',
-            text: 'Find!',
-			});
-    SearchableMapLib.geocoder.onAdd = function (map) {
-          this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
-          this.update();
-          return this._div;
-      };
+    //SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
+            //collapsed: false,
+            //position: 'bottomright',
+            //text: 'Find!',
+			//});
+    //SearchableMapLib.geocoder.onAdd = function (map) {
+          //this._div = L.DomUtil.create('div', 'address'); // create a div with a class "info"
+          //this.update();
+          //return this._div;
+      //};
 	  
       //SearchableMapLib.google = L.gridLayer.googleMutant({type: 'roadmap' });
 
