@@ -77,8 +77,8 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 
-	var osmGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
-	map.addControl(osmGeocoder);
+	var SearchableMapLib.geocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
+	map.addControl(SearchableMapLib.geocoder);
 
 	  
     //SearchableMapLib.geocoder = new L.Control.OSMGeocoder({
