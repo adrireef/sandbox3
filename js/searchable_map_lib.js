@@ -77,8 +77,8 @@ var SearchableMapLib = {
 	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
 
-	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
-//	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
+	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'},callback: function (results));
+	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
       //add hover info control
       SearchableMapLib.info = L.control({position: 'bottomleft'});
@@ -163,8 +163,6 @@ var SearchableMapLib = {
   doSearch: function() {
     SearchableMapLib.clearSearch();
     var address = $("#search-address").val();
-    console.log('print address');
-    console.log(address);
     SearchableMapLib.radius = $("#search-radius").val();
 
     if (SearchableMapLib.radius == null && address != "") {
@@ -172,11 +170,13 @@ var SearchableMapLib = {
     }
 
     if (address != "") {
+		console.log('print address');
+		console.log(address);
       
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
 	
-	SearchableMapLib.OSMGeocoder.createSearchResults({ 'address': address }, function(results) {
+		SearchableMapLib.OSMGeocoder({ 'address': address }, function(results) {
 	  SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
