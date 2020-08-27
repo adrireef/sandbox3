@@ -188,7 +188,7 @@ var SearchableMapLib = {
       
 //      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
 //      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-	SearchableMapLib.webGeocoder =  'http://open.mapquestapi.com/search?format=json&q=' + address;
+	SearchableMapLib.webGeocoder =  'https://open.mapquestapi.com/search?format=json&q=' + address;
 	$.getJSON(SearchableMapLib.webGeocoder, function(data) {
 	  SearchableMapLib.currentPinpoint = [data[0].lat(), data[0].lon()];
       $.address.parameter('address', encodeURIComponent(address));
