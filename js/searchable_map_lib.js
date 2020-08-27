@@ -184,7 +184,7 @@ var SearchableMapLib = {
       SearchableMapLib.addCircle();
       SearchableMapLib.renderMap();
       SearchableMapLib.renderList();
-      SearchableMapLib.getResults();
+      SearchableMapLib.getResults();}
 	  
         //if (status == google.maps.GeocoderStatus.OK) {
           //SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
