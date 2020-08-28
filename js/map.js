@@ -19,17 +19,6 @@ $(function() {
     debug: true,
   });
 
-  //var autocomplete = new kt.OsmNamesAutocomplete('search-address', 'https://api.yourdomain.com/');
-  //autocomplete.registerCallback(function(item) {
-        //alert(JSON.stringify(item, ' ', 2));
-      //});
-      
-  //var inp = document.getElementById("search-address");
-  
-  
-
-
-  //var autocomplete = new google.maps.places.Autocomplete(document.getElementById('search-address'));
   var autocomplete = document.getElementById('search-address');
   var modalURL;
 
