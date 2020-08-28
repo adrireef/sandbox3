@@ -49,21 +49,7 @@ var SearchableMapLib = {
         $("#search-radius").val(SearchableMapLib.radius);
 
     $(":checkbox").prop("checked", "checked");
-    
 
-        
-        
-    //SearchableMapLib.info = L.control({position: 'bottomleft'});
-
-      //SearchableMapLib.info.onAdd = function (map) {
-          //this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-          //this.update();
-          //return this._div;
-      //};
-        
-    //SearchableMapLib.geocoder = new L.Control.OSMGeocoder();
-
-    //geocoder = new google.maps.Geocoder();
     // initiate leaflet map
     if (!SearchableMapLib.map) {
       SearchableMapLib.map = new L.Map('mapCanvas', {
@@ -72,13 +58,8 @@ var SearchableMapLib = {
         scrollWheelZoom: true,
         minZoom: 5
       });
-	  
-	  
-	  
+      	  
 	  L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(SearchableMapLib.map);
-
-//	SearchableMapLib.OSMGeocoder = new L.Control.OSMGeocoder({placeholder: 'Search location...'});
-//	SearchableMapLib.map.addControl(SearchableMapLib.OSMGeocoder);
 
       //add hover info control
       SearchableMapLib.info = L.control({position: 'bottomleft'});
@@ -170,27 +151,8 @@ var SearchableMapLib = {
     }
 
     if (address != "") {
-		console.log('print address');
-		console.log(address);
-		
-		//$.getJSON(SearchableMapLib.webGeocoder, function(data) {
-//// get lat + lon from first match
-		//var latlng = [data[0].lat, data[0].lon]
-		//console.log(latlng);
-//// let's stringify it
-		//var latlngAsString = latlng.join(',');
-		//console.log(latlngAsString);
-//// the full results JSON
-		//console.log(data);
-		//});
-		
-		
-      
-//      SearchableMapLib.geocoder.geocode( { 'address': address }, function(results, status) {
-//      SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
 	SearchableMapLib.webGeocoder =  'https://nominatim.openstreetmap.org/search?format=json&q=' + address;
 	$.getJSON(SearchableMapLib.webGeocoder, function(data) {
-		console.log(data[0].lat, data[0].lon);
 	  SearchableMapLib.currentPinpoint = [data[0].lat, data[0].lon];
       $.address.parameter('address', encodeURIComponent(address));
       $.address.parameter('radius', SearchableMapLib.radius);
@@ -202,38 +164,6 @@ var SearchableMapLib = {
       SearchableMapLib.renderMap();
       SearchableMapLib.renderList();
       SearchableMapLib.getResults();});
-	
-	
-	  //SearchableMapLib.OSMGeocoder.callback( { 'address': address }, function(results) {
-	  //SearchableMapLib.currentPinpoint = [results[0].lat(), results[0].lon()];
-      //$.address.parameter('address', encodeURIComponent(address));
-      //$.address.parameter('radius', SearchableMapLib.radius);
-      //SearchableMapLib.address = address;
-      //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
-      //SearchableMapLib.setZoom();
-      //SearchableMapLib.addIcon();
-      //SearchableMapLib.addCircle();
-      //SearchableMapLib.renderMap();
-      //SearchableMapLib.renderList();
-      //SearchableMapLib.getResults();})
-	  
-        //if (status == google.maps.GeocoderStatus.OK) {
-          //SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-          //$.address.parameter('address', encodeURIComponent(address));
-          //$.address.parameter('radius', SearchableMapLib.radius);
-          //SearchableMapLib.address = address;
-          //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
-          //SearchableMapLib.setZoom();
-          //SearchableMapLib.addIcon();
-          //SearchableMapLib.addCircle();
-          //SearchableMapLib.renderMap();
-          //SearchableMapLib.renderList();
-          //SearchableMapLib.getResults();
-        //}
-        //else {
-          //alert("We could not find your address: " + status);
-        //}
-      //});
     }
     else { //search without geocoding callback
       SearchableMapLib.map.setView(new L.LatLng( SearchableMapLib.map_centroid[0], SearchableMapLib.map_centroid[1] ), SearchableMapLib.defaultZoom)
@@ -242,51 +172,7 @@ var SearchableMapLib = {
       SearchableMapLib.renderList();
       SearchableMapLib.getResults();
     }
-
   },
-  
-  
-  //doSearch: function() {
-    //SearchableMapLib.clearSearch();
-    //var address = $("#search-address").val();
-    //SearchableMapLib.radius = $("#search-radius").val();
-
-    //if (SearchableMapLib.radius == null && address != "") {
-      //SearchableMapLib.radius = 805;
-    //}
-
-    //if (address != "") {
-
-      //geocoder.geocode( { 'address': address }, function(results, status) {
-        //if (status == google.maps.GeocoderStatus.OK) {
-          //SearchableMapLib.currentPinpoint = [results[0].geometry.location.lat(), results[0].geometry.location.lng()];
-          //$.address.parameter('address', encodeURIComponent(address));
-          //$.address.parameter('radius', SearchableMapLib.radius);
-          //SearchableMapLib.address = address;
-          //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
-          //SearchableMapLib.setZoom();
-          //SearchableMapLib.addIcon();
-          //SearchableMapLib.addCircle();
-          //SearchableMapLib.renderMap();
-          //SearchableMapLib.renderList();
-          //SearchableMapLib.getResults();
-        //}
-        //else {
-          //alert("We could not find your address: " + status);
-        //}
-      //});
-    //}
-    //else { //search without geocoding callback
-      //SearchableMapLib.map.setView(new L.LatLng( SearchableMapLib.map_centroid[0], SearchableMapLib.map_centroid[1] ), SearchableMapLib.defaultZoom)
-      //SearchableMapLib.createSQL(); // Must call create SQL before setting parameters.
-      //SearchableMapLib.renderMap();
-      //SearchableMapLib.renderList();
-      //SearchableMapLib.getResults();
-    //}
-
-  //},
-  
-  
 
   renderMap: function() {
     SearchableMapLib.currentResultsLayer.addTo(SearchableMapLib.map);
@@ -373,7 +259,6 @@ var SearchableMapLib = {
     
     //-----Bottom depth filter-----
     //slider definition
-//	if ($('#sliderDepth').val() != '50') {
 	if ($("#cbType6").is(':checked')) {
 	var rangedepth = document.getElementById("sliderDepth"); 
 	var defaultValDe = rangedepth.defaultValue;
@@ -384,13 +269,7 @@ var SearchableMapLib = {
 	rangedepth.oninput = function() { 
 	output1.innerHTML = this.value; 
 	} 
-	//data parsing
-	//var customFilters = [];
-	//if (defaultValDe == currentValDe) {
-		////do nothing
-	//} else {
-		//customFilters.push('parseFloat(r.properties["min_depth_m"]) <= currentValDe');
-	//}
+
 	var customFilters = [];
 	customFilters.push('parseFloat(r.properties["min_depth_m"]) <= currentValDe');
     SearchableMapLib.currentResults.features = $.grep(SearchableMapLib.currentResults.features, function(r) {
@@ -407,7 +286,6 @@ var SearchableMapLib = {
     
     //-----Distance from the coastline filter-----
     //slider definition
-//	if ($('#sliderDistance').val() != '10') {
 	if ($("#cbType7").is(':checked')) {
 	var rangedistance = document.getElementById("sliderDistance"); 
 	var defaultValDi = rangedistance.defaultValue;
@@ -418,13 +296,7 @@ var SearchableMapLib = {
 	rangedistance.oninput = function() { 
 	output2.innerHTML = this.value; 
 	} 
-	//data parsing
-	//var customFilters = [];
-	//if (defaultValDi == currentValDi) {
-		////do nothing
-	//} else {
-		//customFilters.push('parseFloat(r.properties["Min_dist_filt_km"]) <= currentValDi');
-	//}
+
 	var customFilters = [];
 	customFilters.push('parseFloat(r.properties["Min_dist_filt_km"]) <= currentValDi');
     SearchableMapLib.currentResults.features = $.grep(SearchableMapLib.currentResults.features, function(r) {
@@ -715,7 +587,6 @@ var SearchableMapLib = {
 	var divToPrint=document.getElementById('modal-pop');
 	var newWin=window.open('','Print-Window');
 	newWin.document.open();
-//	newWin.document.write('<html><body onload="window.print()"><pre style="white-space:nowrap; width:50%; background:white; line-height:0.5cm; text-align:justify; font-family:calibri,arial,sans-serif; padding:0 20px;">'+divToPrint.innerHTML+'</pre></body></html>');
 	newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
 	newWin.document.close();
 	setTimeout(function(){newWin.close();},10);
