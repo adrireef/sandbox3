@@ -72,7 +72,7 @@ var SearchableMapLib = {
 
       // method that we will use to update the control based on feature properties passed
       var hover_template;
-      $.get( "https://adrireef.github.io/sandbox2/js/hover.ejs", function( template ) {
+      $.get( "https://adrireef.github.io/sandbox3/js/hover.ejs", function( template ) {
         hover_template = template;
       });
       SearchableMapLib.info.update = function (props) {
@@ -187,7 +187,7 @@ var SearchableMapLib = {
     }
     else {
       var row_content;
-      $.get( "https://adrireef.github.io/sandbox2/js/table-row.ejs", function( template ) {
+      $.get( "https://adrireef.github.io/sandbox3/js/table-row.ejs", function( template ) {
           for (idx in SearchableMapLib.currentResults.features) {
             row_content = ejs.render(template, {obj: SearchableMapLib.currentResults.features[idx].properties});
 
@@ -219,7 +219,7 @@ var SearchableMapLib = {
       console.log(data);
     }
     var modal_content;
-    $.get( "https://adrireef.github.io/sandbox2/js/popup.ejs", function( template ) {
+    $.get( "https://adrireef.github.io/sandbox3/js/popup.ejs", function( template ) {
         modal_content = ejs.render(template, {obj: data});
         $('#modal-pop').modal();
         $('#modal-main').html(modal_content);
@@ -536,7 +536,7 @@ var SearchableMapLib = {
 	SearchableMapLib.map.removeLayer(SearchableMapLib.selectedMark);
 	};
     SearchableMapLib.selectedMark = new L.Marker(SearchableMapLib.selectedPoint, { icon: (new L.Icon({
-            iconUrl: 'https://adrireef.github.io/sandbox2/img/marker-icon-yellow2.png',
+            iconUrl: 'https://adrireef.github.io/sandbox3/img/marker-icon-yellow2.png',
             iconSize: [25,41],
             iconAnchor: [10, 32]
     }))});
@@ -546,7 +546,7 @@ var SearchableMapLib = {
 
   addIcon: function() {
     SearchableMapLib.centerMark = new L.Marker(SearchableMapLib.currentPinpoint, { icon: (new L.Icon({
-            iconUrl: 'img/blue-pushpin.png',
+            iconUrl: 'https://adrireef.github.io/sandbox3/img/blue-pushpin.png',
             iconSize: [32, 32],
             iconAnchor: [10, 32]
     }))});
