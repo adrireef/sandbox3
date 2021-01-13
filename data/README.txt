@@ -1,5 +1,8 @@
 Data contained in the present folder are for the purpose of webGis functioning only and they represent an hard re-elaboration of the original database. This data belong to the project ADRIREEF and to all their partners.
-They can be used and modified under attribution, as specified in the attached license file, by citing the database as follows:
+The original database has been published in SEANOE repository and it is available to be used and modified upon citation: 
 
-Map of Adriatic reefs, WP3.1 - Reefs Classification - Deliverable D3.1.4. ADRIREEF - innovative exploitation of Adriatic Reefs in order to strengthen blue economy (2020). Program Italy-Croatia CBC 2014-2020, Interreg V-A, CUP C66H180020004, CIG 78587941F8. Adriatic Sea reefs database [database]. 
-Retrieved from https://github.com/adrireef/sandbox2/tree/master/data
+Ferrà Carmen, Minelli Annalisa, Spagnolo Alessandra, Scanu Martina, Tassetti Anna Nora, Ferrari Carla Rita, Mazziotti Cristina, Pigozzi Silvia, Jakl Zrinka, Šarčević Tena, Šimac Miranda, Kruschel Claudia, Pejdo Dubravko, Barbone Enrico, De Gioia Michele, Borme Diego, Gordini Emiliano, Auriemma Rocco, Benzon Ivo, Vuković-Stanišić Đeni, Orlić Sandi, Frančić Vlado, Zec Damir, Orlić Kapović Ivana, Soldati Michela, Uliazzi Silvia, Fabi Gianna (2020). The ADRIREEF database: natural/artificial reefs and wrecks in the Adriatic Sea. SEANOE. https://doi.org/10.17882/74880
+
+In addition, to properly cite this dataset, it would be appreciated that the following work(s) be cited too, when using this dataset in a publication:
+
+Minelli, A., Ferrà, C., Spagnolo, A., Scanu, M., Tassetti, A. N., Ferrari, C. R., Mazziotti, C., Pigozzi, S., Jakl, Z., Šarčević, T., Šimac, M., Kruschel, C., Pejdo, D., Barbone, E., De Gioia, M., Borme, D., Gordini, E., Auriemma, R., Benzon, I., Vuković-Stanišić, Đ., Orlić, S., Frančić, V., Zec, D., Orlić Kapović, I., Soldati, M., Ulazzi, S., and Fabi, G (2021). he ADRIREEF database: a comprehensive collection of natural/artificial reefs and wrecks in the Adriatic Sea. Earth Syst. Sci. Data Discuss. [preprint] https://doi.org/10.5194/essd-2020-384
